@@ -497,7 +497,7 @@ function vendor.TooltipHook:SetLootRollItem(tooltip, slot)
 end
 	
 function vendor.TooltipHook:SetBagItem(tooltip, bag, slot)
-	local  _, count = GetContainerItemInfo(bag, slot);
+	local  _, count = C_Container.GetContainerItemInfo(bag, slot);
 	_HandleCall(self, tooltip, count);
 end
 	

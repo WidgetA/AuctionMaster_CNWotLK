@@ -88,7 +88,7 @@ do
     	html:SetFontObject("h1", GameFontNormalLarge)
     	html:SetFontObject("h2", GameFontNormalLarge)
     	html:SetFontObject("h3", GameFontRed)
-    	html:SetFontObject(GameFontWhite)
+    	-- html:SetFontObject(GameFontWhite)
     	html:SetSpacing("h1", 10)
     	html:SetSpacing("h2", 9)
     	html:SetSpacing("h3", 8)

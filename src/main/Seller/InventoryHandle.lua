@@ -40,14 +40,15 @@ end
 function vendor.InventoryHandle.prototype:Update()
 	self.inventory = {};
 	for bag = 0, 4 do
-		for slot = 1, GetContainerNumSlots(bag) do
-			local itemLink = GetContainerItemLink(bag, slot);
+		for slot = 1, C_Container.GetContainerNumSlots(bag) do
+			local itemLink = C_Container.GetContainerItemLink(bag, slot);
 			if (itemLink) then
 				log:Debug("found itemLink [%s]", vendor.Items:PrintItemLink(itemLink))
 				local name, texture, stackCount = vendor.Items:GetItemData(itemLink)
 				if (name) then
 			 		local key = self:CreateItemKey(itemLink);
-					local _, count = GetContainerItemInfo(bag, slot);
+					local count = C_Container.GetContainerItemInfo(bag, slot);
+					count = count["stackCount"]
 					-- check whether it's already in inventory
 					local info = self.inventory[key];
 					if (info) then

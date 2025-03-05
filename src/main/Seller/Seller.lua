@@ -79,8 +79,8 @@ end
 local function _FindItemInBag(itemLink)
     local itemKey = vendor.Items:GetItemLinkKey(itemLink)
     for bag = 0, 4 do
-        for slot = 1, GetContainerNumSlots(bag) do
-            local slotLink = GetContainerItemLink(bag, slot);
+        for slot = 1, C_Container.GetContainerNumSlots(bag) do
+            local slotLink = C_Container.GetContainerItemLink(bag, slot);
             if (slotLink) then
                 local slotKey = vendor.Items:GetItemLinkKey(slotLink);
                 if (itemKey == slotKey) then
@@ -100,7 +100,7 @@ local function _Sell(itemLink, minBid, buyout, runTime, stackSize, stackCount)
 
     local bag, slot = _FindItemInBag(itemLink, reverse)
     if (bag and slot) then
-        PickupContainerItem(bag, slot)
+        C_Container.PickupContainerItem(bag, slot)
         vendor.clickAuctionSellItemButton()
         local name, texture, count, quality, canUse, price = GetAuctionSellItemInfo()
         local itemName = vendor.Items:GetItemData(itemLink)
@@ -335,8 +335,8 @@ local CMDS = {
 --]]
 local function _FindInventoryItemLink(name)
     for bag = 0, 4 do
-        for slot = 1, GetContainerNumSlots(bag) do
-            local itemLink = GetContainerItemLink(bag, slot);
+        for slot = 1, C_Container.GetContainerNumSlots(bag) do
+            local itemLink = C_Container.GetContainerItemLink(bag, slot);
             if (itemLink) then
                 local itemName = GetItemInfo(itemLink);
                 if (name and name == itemName) then
@@ -761,7 +761,11 @@ local function _DurationSelected(self, id)
 end
 
 local function _UpdateSalesFrame(name, texture, count)
-    SalesFrameItem:SetNormalTexture(texture)
+    if texture == nil then
+        SalesFrameItem:ClearNormalTexture()
+    else
+        SalesFrameItem:SetNormalTexture(texture)
+    end
     SalesFrameItemName:SetText(name)
     if (count > 1) then
         SalesFrameItemCount:SetText(count)

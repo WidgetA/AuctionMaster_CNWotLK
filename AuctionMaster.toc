@@ -1,7 +1,7 @@
-## Interface: 20501
+## Interface: 30403
 ## Title: AuctionMaster
 ## Notes: Auction house selling and statistic tool.
-## Author: Udorn
+## Author: Udorn(Modified by Widget_A)
 ## RequiredDeps:
 ## SavedVariables: VendorDb, AuctionMasterMiscDb
 ## DefaultState: enabled
