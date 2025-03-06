@@ -583,13 +583,13 @@ function vendor.TooltipHook:SetBuybackItem(tooltip, itemIndex)
 	_HandleCall(self, tooltip, count);
 end
 
-function vendor.TooltipHook:SetSocketGem(tooltip, unit, slot)
-	local count = GetInventoryItemCount(unit, slot);
+function vendor.TooltipHook:SetSocketGem(tooltip, slot)
+	local count = GetInventoryItemCount("player", slot);
 	_HandleCall(self, tooltip, count);
 end
 
-function vendor.TooltipHook:SetExistingSocketGem(tooltip, unit, slot)
-	local count = GetInventoryItemCount(unit, slot);
+function vendor.TooltipHook:SetExistingSocketGem(tooltip, slot)
+	local count = GetInventoryItemCount('player', slot);
 	_HandleCall(self, tooltip, count);
 end
 

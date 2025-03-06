@@ -11,3 +11,6 @@
 - `src\main\Seller\InventoryHandle.lua` 中使用了 `GetContainerNumSlots` 与 `GetContainerItemInfo`, 替换为 `C_Container.GetContainerNumSlots` 与 `C_Container.GetContainerItemLink`
 - `src\main\Seller\Seller.lua` 中使用了 ` GetContainerNumSlots`, `PickupContainerItem`, `GetContainerNumSlots`, 替换为 `C_Container.GetContainerNumSlots`, `C_Container.PickupContainerItem`, `C_Container.GetContainerNumSlots`
 - `src\main\Seller\Seller.lua` 中 `SetNormalTexture` 纹理函数会在值为空的时候失效，当值为空的时候替换为正确的 `ClearNormalTexture`
+
+### 2025/3/7
+- `src\main\TooltipHook\TooltipHook.lua` 中 `GetInventoryItemCount` 存在调用错误，进行了修复
